@@ -44,6 +44,9 @@ export interface BubbleAlignments {
   left?: string[];
   // Used for west
   right?: string[];
+
+  // Used for insets
+  inset?: string[];
 }
 
 const allAlignments: Array<keyof BubbleAlignments> = [
@@ -56,10 +59,15 @@ const allAlignments: Array<keyof BubbleAlignments> = [
   'top',
   'bottom',
   'left',
-  'right'
+  'right',
+
+  'inset'
 ];
 
-const nu = (width: number, yoffset: number, classes: BubbleAlignments): Bubble => {
+const nu = (width: number, yoffset: number, classes: BubbleAlignments, insetModifier: number = 1): Bubble => {
+  const insetWidth = width * insetModifier;
+  const insetYoffset = yoffset * insetModifier;
+
   const getClasses = (prop: keyof BubbleAlignments): string[] => Obj.get(classes, prop).getOr([ ]);
 
   const make = (xDelta: number, yDelta: number, alignmentsOn: Array<(keyof BubbleAlignments)>) => {
@@ -80,14 +88,14 @@ const nu = (width: number, yoffset: number, classes: BubbleAlignments): Bubble =
     north: () => make(-width / 2, -yoffset, [ 'bottom', 'alignCentre' ]),
     east: () => make(width, -yoffset / 2, [ 'valignCentre', 'left' ]),
     west: () => make(-width, -yoffset / 2, [ 'valignCentre', 'right' ]),
-    insetNortheast: () => make(width, yoffset, [ 'top', 'alignLeft' ]),
-    insetNorthwest: () => make(-width, yoffset, [ 'top', 'alignRight' ]),
-    insetNorth: () => make(-width / 2, yoffset, [ 'top', 'alignCentre' ]),
-    insetSoutheast: () => make(width, -yoffset, [ 'bottom', 'alignLeft' ]),
-    insetSouthwest: () => make(-width, -yoffset, [ 'bottom', 'alignRight' ]),
-    insetSouth: () => make(-width / 2, -yoffset, [ 'bottom', 'alignCentre' ]),
-    insetEast: () => make(-width, -yoffset / 2, [ 'valignCentre', 'right' ]),
-    insetWest: () => make(width, -yoffset / 2, [ 'valignCentre', 'left' ])
+    insetNortheast: () => make(insetWidth, insetYoffset, [ 'top', 'alignLeft', 'inset' ]),
+    insetNorthwest: () => make(-insetWidth, insetYoffset, [ 'top', 'alignRight', 'inset' ]),
+    insetNorth: () => make(-insetWidth / 2, insetYoffset, [ 'top', 'alignCentre', 'inset' ]),
+    insetSoutheast: () => make(insetWidth, -insetYoffset, [ 'bottom', 'alignLeft', 'inset' ]),
+    insetSouthwest: () => make(-insetWidth, -insetYoffset, [ 'bottom', 'alignRight', 'inset' ]),
+    insetSouth: () => make(-insetWidth / 2, -insetYoffset, [ 'bottom', 'alignCentre', 'inset' ]),
+    insetEast: () => make(-insetWidth, -insetYoffset / 2, [ 'valignCentre', 'right', 'inset' ]),
+    insetWest: () => make(insetWidth, -insetYoffset / 2, [ 'valignCentre', 'left', 'inset' ])
   };
 };
 
