@@ -28,8 +28,8 @@ div.@{prefix}-fullscreen {
 }
 
 .@{prefix}-window {
-	.border-radius(6px);
-	.box-shadow(@window-box-shadow);
+	border-radius: 4px;
+	box-shadow: 0 4px 16px rgba(0,0,0,.2);
 	.reset-gradient();
 	background: @window-bg;
 	position: fixed;
@@ -43,28 +43,44 @@ div.@{prefix}-fullscreen {
 }
 
 .@{prefix}-window-head {
-	padding: 9px 15px;
+	padding: 12px 16px;
 	border-bottom: 1px solid @window-head-border;
 	position: relative;
+	background-color: #EAEAEA;
 }
 
 .@{prefix}-window-head .@{prefix}-close {
+	content: '';
 	position: absolute;
 	right: 15px;
-	top: 9px;
+	top: 11px;
 	font-size: 20px;
 	font-weight: bold;
 	line-height: 20px;
-	color: @window-head-close;
+	color: transparent;
 	cursor: pointer;
+	width: 24px;
 
-	// IE7
-	height: 20px;
+	height: 24px;
 	overflow: hidden;
+}
+.@{prefix}-window-head .@{prefix}-close::before,
+.@{prefix}-window-head .@{prefix}-close::after{
+	content: '';
+	width: 1px;
+	height: 20px;
+	background-color: #656565;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%) rotate(45deg);
+}
+.@{prefix}-window-head .@{prefix}-close::after{
+	transform: translateY(-50%) translateX(-50%) rotate(-45deg);
 }
 
 .@{prefix}-close:hover {
-	color: @window-head-close-hover;
+	color: transparent;
 }
 
 .@{prefix}-window-head .@{prefix}-title {
@@ -73,6 +89,7 @@ div.@{prefix}-fullscreen {
 	font-weight: bold;
 	text-rendering: optimizelegibility;
 	padding-right: 10px;
+	color: #5D5D5D;
 }
 
 .@{prefix}-window .@{prefix}-container-body {
@@ -83,7 +100,13 @@ div.@{prefix}-fullscreen {
 	display: block;
 	background-color: @window-foot-bg;
 	border-top: 1px solid @window-foot-border;
-	.border-radius(0 0 6px 6px);
+	border-radius: 0 0 4px 4px;
+}
+
+.@{prefix}-foot > div{
+	display: flex !important;
+	justify-content: flex-end;
+	flex-direction: row-reverse;
 }
 
 .@{prefix}-window-head .@{prefix}-dragh {
@@ -104,7 +127,10 @@ div.@{prefix}-fullscreen {
 }
 
 .@{prefix}-window-body .@{prefix}-listbox {
-	border-color: @btn-border-hover;
+	border-color: #ddd;
+	&:hover, &:active{
+		border-color: #ddd;
+	}
 }
 
 // RTL

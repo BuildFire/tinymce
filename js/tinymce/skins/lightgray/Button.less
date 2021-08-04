@@ -1,20 +1,21 @@
 // Button
 
 .@{prefix}-btn {
-	border: 1px solid mix(rgb(red(@btn-border-right), green(@btn-border-right), blue(@btn-border-right)), @panel-bg, 30%);
-	border-color: @btn-border-top @btn-border-right @btn-border-bottom @btn-border-left;
+	border: 1px solid transparent;
+	border-color: transparent;
 	position: relative;
 	text-shadow: @text-shadow;
+	border-radius: 4px;
 
 	.inline-block();
-	.border-radius(3px);
+	.border-radius(4px);
 	.box-shadow(@btn-box-shadow);
 	.vertical-gradient(@btn-bg, @btn-bg-hlight);
 
 	&:hover, &:focus {
 		color: @btn-text;
-		.vertical-gradient(darken(@btn-bg, 5%), darken(@btn-bg-hlight, 5%));
-		border-color: @btn-border-hover;
+		.vertical-gradient(#EFF7FF, #EFF7FF);
+		border-color: transparent;
 	}
 
 	&.@{prefix}-disabled button, &.@{prefix}-disabled:hover button {
@@ -24,15 +25,15 @@
 	}
 
 	&.@{prefix}-active, &.@{prefix}-active:hover {
-		.vertical-gradient(darken(@btn-bg, 10%), darken(@btn-bg-hlight, 5%));
+		.vertical-gradient(#EFF7FF, #EFF7FF);
 		.box-shadow(@btn-box-shadow-active);
-		border-color: darken(@btn-bg, 20%);
+		border-color: transparent;
 	}
 
 	&:active {
-		.vertical-gradient(darken(@btn-bg, 7%), darken(@btn-bg-hlight, 5%));
+		.vertical-gradient(#EFF7FF, #EFF7FF);
 		.box-shadow(@btn-box-shadow-active);
-		border-color: @btn-border-active;
+		border-color: transparent;
 
 	}
 }
@@ -59,8 +60,9 @@
 	text-shadow: 1px 1px @btn-text-shadow;
 }
 
-.@{prefix}-primary {
-	min-width: 50px;
+.@{prefix}-primary,
+.@{prefix}-success {
+	min-width: 80px;
 	color: @btn-primary-text;
 	border: 1px solid transparent;
 	border-color: @btn-primary-border;
@@ -83,9 +85,22 @@
 	}
 }
 
+.@{prefix}-success{
+	background-color: @btn-success-bg;
+	color: #fff;
+	&:hover, &:focus{
+		background-color: @btn-success-bg;
+		color: #fff;
+	}
+}
+
 .@{prefix}-primary button, .@{prefix}-primary button i {
 	color: @btn-primary-text;
 	text-shadow: 1px 1px @btn-primary-text-shadow;
+}
+
+.@{prefix}-success button, .@{prefix}-success button i{
+	color: #fff;
 }
 
 .@{prefix}-btn-large button {
@@ -163,4 +178,19 @@
 
 .@{prefix}-rtl .@{prefix}-btn button {
 	direction: rtl;
+}
+
+.@{prefix}-foot .@{prefix}-btn:not(.@{prefix}-primary){
+	border: 1px solid #e8e8e8;
+}
+.@{prefix}-foot .@{prefix}-btn{
+	min-width: 100px;
+	min-height: 38px;
+	position: relative;
+	left: auto !important;
+	margin-right: 12px;
+}
+
+.@{prefix}-foot .@{prefix}-btn:last-of-type{
+	margin-left: auto;
 }

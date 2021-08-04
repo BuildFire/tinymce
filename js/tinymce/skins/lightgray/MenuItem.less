@@ -32,7 +32,9 @@
 
 .@{prefix}-menu-item.@{prefix}-disabled:hover {
 	background: @menuitem-bg-disabled;
+	color: #ddd;
 }
+
 
 .@{prefix}-menu-shortcut {
 	display: inline-block;
@@ -139,4 +141,9 @@ div.@{prefix}-menu .@{prefix}-menu-item-sep, .@{prefix}-menu-item-sep:hover {
 .@{prefix}-rtl .@{prefix}-menu-item.@{prefix}-selected .@{prefix}-caret, .@{prefix}-rtl .@{prefix}-menu-item:focus .@{prefix}-caret, .@{prefix}-rtl .@{prefix}-menu-item:hover .@{prefix}-caret {
 	border-left-color: transparent;
 	border-right-color: @menuitem-caret-selected;
+}
+.@{prefix}-menu-item.@{prefix}-disabled:hover .@{prefix}-ico,
+.@{prefix}-menu-item.@{prefix}-disabled:hover .@{prefix}-text,
+.@{prefix}-menu-item.@{prefix}-disabled:hover .@{prefix}-menu-shortcut{
+	color: #999;
 }

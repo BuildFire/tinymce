@@ -12,8 +12,8 @@
 	border: 1px solid mix(rgb(red(@menu-border), green(@menu-border), blue(@menu-border)), @panel-bg, round(alpha(@menu-border) * 200));
 	border: 1px solid @menu-border;
 	z-index: 1002;
-	.border-radius(6px);
-	.box-shadow(0 5px 10px rgba(0,0,0,.2));
+	border-radius: 4px;
+	box-shadow: 0 2px 8px rgba(0,0,0,.2);
 	max-height: 400px;
 	overflow: auto;
 	overflow-x: hidden;
@@ -26,6 +26,7 @@
 .@{prefix}-menu-has-icons i {
 	display: inline-block;
 	*display: inline;
+	margin-right: 8px;
 }
 
 .@{prefix}-menu-sub-tr-tl { margin: -6px 0 0 -1px; }

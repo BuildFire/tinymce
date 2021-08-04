@@ -16,9 +16,20 @@
 }
 
 .@{prefix}-btn-group:not(:first-child) {
-	border-left: 1px solid darken(@btn-bg, 15%);
+	border-left: 1px solid transparent;
 	padding-left: @flow-layout-spacing + 1px;
 	margin-left: @flow-layout-spacing + 1px;
+	position: relative;
+}
+.@{prefix}-btn-group:not(:first-child)::before{
+	content: '';
+	position: absolute;
+	height: 12px;
+	width: 1px;
+	background-color: #ddd;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
 }
 
 .@{prefix}-btn-group .@{prefix}-first {
