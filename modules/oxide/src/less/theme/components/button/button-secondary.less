@@ -10,18 +10,18 @@
 // Extends button.less
 //
 
-@button-secondary-background-color: contrast(@background-color, darken(@background-color, 6%), lighten(@background-color, 15%));
+@button-secondary-background-color: transparent;
 @button-secondary-background-image: none;
 @button-secondary-background-position: @button-background-position;
 @button-secondary-background-repeat: @button-background-repeat;
-@button-secondary-border-color: @button-secondary-background-color;
+@button-secondary-border-color: #ddd;
 @button-secondary-border-radius: @button-border-radius;
 @button-secondary-border-style: @button-border-style;
-@button-secondary-border-width: @button-border-width;
+@button-secondary-border-width: 1px;
 @button-secondary-box-shadow: @button-box-shadow;
 @button-secondary-font-size: @button-font-size;
 @button-secondary-font-style: @button-font-style;
-@button-secondary-font-weight: @button-font-weight;
+@button-secondary-font-weight: normal;
 @button-secondary-letter-spacing: @button-letter-spacing;
 @button-secondary-outline: none;
 @button-secondary-text-color: contrast(@button-secondary-background-color, @color-black, @color-white);
@@ -63,13 +63,13 @@
     border-style: @button-secondary-border-style;
     border-width: @button-secondary-border-width;
     box-shadow: @button-secondary-box-shadow;
-    color: @button-secondary-text-color;
+    color: #3e3e3e;
     font-size: @button-secondary-font-size;
     font-style: @button-secondary-font-style;
     font-weight: @button-secondary-font-weight;
     letter-spacing: @button-secondary-letter-spacing;
     outline: @button-secondary-outline;
-    padding: @button-padding-y @button-padding-x;
+    padding: .5rem 1.5rem;
     text-decoration: @button-secondary-text-decoration;
     text-transform: @button-secondary-text-transform;
 
@@ -90,11 +90,11 @@
     }
 
     &:hover:not(:disabled) {
-      background-color: @button-secondary-hover-background-color;
+      background-color: #f2f2f2;
       background-image: @button-secondary-hover-background-image;
-      border-color: @button-secondary-hover-border-color;
+      border-color: #ddd;
       box-shadow: @button-secondary-hover-box-shadow;
-      color: @button-secondary-hover-text-color;
+      color: #3e3e3e;
     }
 
     &:active:not(:disabled) {
